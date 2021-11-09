@@ -14,6 +14,8 @@
 
 Simple scripts to claim and restake vested tokens from [SnowbankDAO](https://dapp.snowbank.finance/#/mints)
 
+Since Snowbank is a fork of [OlympusDAO](https://www.olympusdao.finance/), it would be simple to adapt this for your fork of choice too
+
 ## Setup
 
 ```sh
