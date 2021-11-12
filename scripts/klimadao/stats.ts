@@ -1,6 +1,10 @@
 import { Contract } from "ethers"
 import { ethers } from "hardhat"
-import { contractName, contractAddress } from "./contract"
+import {
+  depositoryContractName, depositoryContractAddress,
+  tokenContractName, tokenContractAddress,
+  stakedTokenContractName, stakedTokenContractAddress,
+} from "./contract"
 import * as dotenv from "dotenv"
 dotenv.config()
 
@@ -10,11 +14,12 @@ dotenv.config()
 const walletAddress: string = process.env['WALLET_ADDRESS']
 
 const main = async(): Promise<any> => {
-  console.log({ contractName, contractAddress, walletAddress })
+  const depositoryContract: Contract = await ethers.getContractAt(depositoryContractName, depositoryContractAddress)
+  const tokenContract: Contract = await ethers.getContractAt(tokenContractName, tokenContractAddress)
+  const stakedTokenContract: Contract = await ethers.getContractAt(stakedTokenContractName, stakedTokenContractAddress)
 
-  const contract: Contract = await ethers.getContractAt(contractName, contractAddress)
+  const bondInfo: any = await depositoryContract.bondInfo(walletAddress)
 
-  const bondInfo: any = await contract.bondInfo(walletAddress)
   console.log({
     payout: bondInfo.payout.toString(),
     pricePaid: bondInfo.pricePaid.toString(),
@@ -22,13 +27,26 @@ const main = async(): Promise<any> => {
     vesting: bondInfo.vesting
   })
 
-  const pendingPayout: any = await contract.pendingPayoutFor(walletAddress)
+  const pendingPayout: any = await depositoryContract.pendingPayoutFor(walletAddress)
   console.log({ pendingPayout: pendingPayout.toString() })
 
-  const percentVested: any = await contract.percentVestedFor(walletAddress)
+  const percentVested: any = await depositoryContract.percentVestedFor(walletAddress)
   console.log({ percentVested: percentVested.toString() })
 
-  console.log(`\nYou have vested ${Number(pendingPayout)/10e8}`)
+  console.log()
+  console.log('Vested bond balance:', pendingPayout.toNumber()/10e8)
+
+  // const stakeBalance: any = await stakingContract.balanceOf(walletAddress)
+
+  const tokenBalance: any = await tokenContract.balanceOf(walletAddress)
+  console.log('KLIMA balance:', tokenBalance.toNumber()/10e8)
+
+  const stakedTokenBalance: any = await stakedTokenContract.balanceOf(walletAddress)
+  console.log('sKLIMA balance:', stakedTokenBalance.toNumber()/10e8)
+
+
+
+
 
 }
 
