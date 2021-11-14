@@ -12,9 +12,9 @@
                       "ice to meet you"
 ```
 
-Simple scripts to claim and restake vested tokens from [SnowbankDAO](https://dapp.snowbank.finance/#/mints)
+Simple scripts to claim and restake vested tokens from [OlympusDAO](https://www.olympusdao.finance) forks (OHM/sOHM)
 
-Since Snowbank is a fork of [OlympusDAO](https://www.olympusdao.finance/), it would be simple to adapt this for your fork of choice too
+Originally written for [SnowbankDAO](https://dapp.snowbank.finance/#/mints), but now supports many other [OlympusDAO](https://www.olympusdao.finance) forks, including [Wonderland](https://www.wonderland.money), [KlimaDAO](https://www.klimadao.finance) and probably more
 
 ## Setup
 
@@ -36,28 +36,30 @@ Edit .env and put in your own values for:
 
 ## Usage
 
+To see a list of all the commands, run `yarn run`. Replace `snowbankdao` with your fork(s) of choice
+
 Get some info about your bond (`bondInfo()`):
 
 ```sh
-yarn stats
+yarn snowbankdao:stats
 ```
 
 Claim your rewards (`redeem()`):
 
 ```sh
-yarn redeem
+yarn snowbankdao:redeem
 ```
 
 To run that every 8 hours, you could use cron, systemd or just a lazy bash loop:
 
 ```sh
 while [ true ]; do
-  yarn redeem
+  yarn snowbankdao:redeem
   sleep $((60*60*8))
 done
 ```
 
-Or just run it yourself, I don't care
+Or just run it manually, I don't care
 
 ## License
 
