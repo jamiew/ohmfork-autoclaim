@@ -30,10 +30,13 @@
     "test": "yarn  hardhat test",
     "lint": "prettier ./test/**/*.ts --check",
     "prepublishOnly": "yarn test",
+
     "snowbankdao:stats": "yarn hardhat run --network avax scripts/stats.ts ",
     "snowbankdao:redeem": "yarn hardhat run --network avax scripts/redeem.ts",
     "klimadao:stats": "yarn hardhat run --network polygon scripts/klimadao/stats.ts ",
-    "klimadao:redeem": "yarn hardhat run --network polygon scripts/klimadao/redeem.ts"
+    "klimadao:redeem": "yarn hardhat run --network polygon scripts/klimadao/redeem.ts",
+    "wonderland:stats": "yarn hardhat run --network polygon scripts/wonderland/stats.ts ",
+    "wonderland:redeem": "yarn hardhat run --network polygon scripts/wonderland/redeem.ts"
   },
   "engines": {
     "node": ">=14.17.0"
