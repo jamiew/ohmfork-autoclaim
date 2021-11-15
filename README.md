@@ -12,9 +12,11 @@
                       "ice to meet you"
 ```
 
-Simple scripts to claim and restake vested tokens from [OlympusDAO](https://www.olympusdao.finance) forks (OHM/sOHM)
+Simple scripts to claim and restake vested bonds from [OlympusDAO](https://www.olympusdao.finance) (OHM/sOHM) and its many forks
 
-Originally written for [SnowbankDAO](https://dapp.snowbank.finance/#/mints), but now supports many other [OlympusDAO](https://www.olympusdao.finance) forks, including [Wonderland](https://www.wonderland.money), [KlimaDAO](https://www.klimadao.finance) and probably more
+Originally written for [SnowbankDAO](https://dapp.snowbank.finance/#/mints), but now supports many other OlympusDAO forks, including [Wonderland](https://www.wonderland.money), [KlimaDAO](https://www.klimadao.finance) and probably more.
+
+PRs and bug reports welcome
 
 ## Setup
 
@@ -36,7 +38,7 @@ Edit .env and put in your own values for:
 
 ## Usage
 
-To see a list of all the commands, run `yarn run`. Replace `snowbankdao` with your fork(s) of choice
+To see a list of all the commands, run `yarn run`. Replace `snowbankdao` with `klimadao` or your supported fork of choice
 
 Get some info about your bond (`bondInfo()`):
 
