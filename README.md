@@ -44,12 +44,14 @@ Get some info about your bond (`bondInfo()`):
 
 ```sh
 yarn snowbankdao:stats
+yarn klimadao:stats
 ```
 
 Claim your rewards (`redeem()`):
 
 ```sh
 yarn snowbankdao:redeem
+yarn klimadao:stats
 ```
 
 To run that every 8 hours, you could use cron, systemd or just a lazy bash loop:
